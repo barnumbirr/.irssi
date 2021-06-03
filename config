@@ -1,0 +1,217 @@
+servers = (
+  {
+    address = "irc.libera.chat";
+    chatnet = "Libera";
+    port = "6697";
+    use_tls = "yes";
+    tls_verify = "no";
+    autoconnect = "yes";
+  }
+);
+
+chatnets = { Libera = { type = "IRC"; }; };
+
+aliases = {
+  ATAG = "WINDOW SERVER";
+  ADDALLCHANS = "SCRIPT EXEC foreach my \\$channel (Irssi::channels()) { Irssi::command(\"CHANNEL ADD -auto \\$channel->{name} \\$channel->{server}->{tag} \\$channel->{key}\")\\;}";
+  B = "BAN";
+  BACK = "AWAY";
+  BANS = "BAN";
+  BYE = "QUIT";
+  C = "CLEAR";
+  CALC = "EXEC - if command -v bc >/dev/null 2>&1\\; then printf '%s=' '$*'\\; echo '$*' | bc -l\\; else echo bc was not found\\; fi";
+  CHAT = "DCC CHAT";
+  DATE = "TIME";
+  DEHIGHLIGHT = "DEHILIGHT";
+  DESCRIBE = "ACTION";
+  DHL = "DEHILIGHT";
+  EXEMPTLIST = "MODE $C +e";
+  EXIT = "QUIT";
+  GOTO = "SCROLLBACK GOTO";
+  HIGHLIGHT = "HILIGHT";
+  HL = "HILIGHT";
+  HOST = "USERHOST";
+  INVITELIST = "MODE $C +I";
+  J = "JOIN";
+  K = "KICK";
+  KB = "KICKBAN";
+  KN = "KNOCKOUT";
+  LAST = "LASTLOG";
+  LEAVE = "PART";
+  M = "MSG";
+  MUB = "UNBAN *";
+  N = "NAMES";
+  NMSG = "^MSG";
+  P = "PART";
+  Q = "QUERY";
+  RESET = "SET -default";
+  RUN = "SCRIPT LOAD";
+  SAY = "MSG *";
+  SB = "SCROLLBACK";
+  SBAR = "STATUSBAR";
+  SIGNOFF = "QUIT";
+  SV = "MSG * Irssi $J ($V) - https://irssi.org";
+  T = "TOPIC";
+  UB = "UNBAN";
+  UMODE = "MODE $N";
+  UNSET = "SET -clear";
+  W = "WHO";
+  WC = "WINDOW CLOSE";
+  WG = "WINDOW GOTO";
+  WJOIN = "JOIN -window";
+  WI = "WHOIS";
+  WII = "WHOIS $0 $0";
+  WL = "WINDOW LIST";
+  WN = "WINDOW NEW HIDDEN";
+  WQUERY = "QUERY -window";
+  WW = "WHOWAS";
+};
+
+statusbar = {
+
+  items = {
+
+    barstart = "{sbstart}";
+    barend = "{sbend}";
+
+    topicbarstart = "{topicsbstart}";
+    topicbarend = "{topicsbend}";
+
+    time = "{sb $Z}";
+    user = "{sb {sbnickmode $cumode}$N{sbmode $usermode}{sbaway $A}}";
+
+    window = "{sb $winref:$tag/$itemname{sbmode $M}}";
+    window_empty = "{sb $winref{sbservertag $tag}}";
+
+    prompt = "{prompt $[.15]itemname}";
+    prompt_empty = "{prompt $winname}";
+
+    topic = " $topic";
+    topic_empty = " Irssi v$J - https://irssi.org";
+
+    lag = "{sb Lag: $0-}";
+    act = "{sb Act: $0-}";
+    more = "-- more --";
+  };
+
+  default = {
+
+    window = {
+
+      disabled = "no";
+      type = "window";
+      placement = "bottom";
+      position = "1";
+      visible = "active";
+
+      items = {
+        barstart = { priority = "100"; };
+        time = { };
+        user = { };
+        window = { };
+        window_empty = { };
+        lag = { priority = "-1"; };
+        more = { priority = "-1"; alignment = "right"; };
+        barend = { priority = "100"; alignment = "right"; };
+        usercount = { };
+        mirc_colour_popup = { };
+      };
+    };
+
+    window_inact = {
+
+      type = "window";
+      placement = "bottom";
+      position = "1";
+      visible = "inactive";
+
+      items = {
+        barstart = { priority = "100"; };
+        window = { };
+        window_empty = { };
+        more = { priority = "-1"; alignment = "right"; };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+
+    prompt = {
+
+      type = "root";
+      placement = "bottom";
+      position = "100";
+      visible = "always";
+
+      items = {
+        prompt = { priority = "-1"; };
+        prompt_empty = { priority = "-1"; };
+        colours = { alignment = "right"; };
+        input = { priority = "10"; };
+      };
+    };
+
+    topic = {
+
+      type = "root";
+      placement = "top";
+      position = "1";
+      visible = "always";
+
+      items = {
+        topicbarstart = { priority = "100"; };
+        topic = { };
+        topic_empty = { };
+        topicbarend = { priority = "100"; alignment = "right"; };
+      };
+    };
+    awl_0 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_0 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+  };
+};
+
+keyboard = ( { key = "^R"; id = "command"; data = "history_search "; } );
+
+hilights = ( { text = "barnumbirr"; nick = "yes"; word = "yes"; } );
+
+settings = {
+
+  core = {
+    real_name = "barnumbirr";
+    user_name = "barnumbirr";
+    nick = "barnumbirr";
+    use_proxy = "yes";
+    proxy_address = "bnc.irccloud.com";
+    proxy_port = "6697";
+    proxy_password = "<replace_me>";
+    proxy_string = "";
+    proxy_string_after = "conn %s %d";
+    timestamp_format = "%H:%M:%S";
+  };
+
+  "fe-text" = {
+    actlist_sort = "refnum";
+    colors_ansi_24bit = "no";
+    mirc_blink_fix = "no";
+  };
+
+  "perl/core/scripts" = {
+    nicklist_automode = "SCREEN";
+    neat_colors = "X30rRX61X6CX3CyX1DcCBX3HX2AbMX3AX42X6M";
+    chansort_autosort = "yes";
+    nicklist_width = "12";
+    neat_dynamic = "yes";
+    awl_shared_sbar = "OFF";
+    awl_viewer = "no";
+    usercount_show_zero = "yes";
+    usercount_show_ircops = "no";
+    usercount_show_halfops = "yes";
+    neat_shrink = "yes";
+    neat_staircase_shrink = "yes";
+  };
+
+  "fe-common/core" = { show_nickmode = "yes"; };
+};

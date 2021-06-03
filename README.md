@@ -1,2 +1,3 @@
 # .irssi
+
 My irssi config
