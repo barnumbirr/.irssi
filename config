@@ -1,15 +1,14 @@
 servers = (
   {
-    address = "irc.libera.chat";
+    address = "bnc.irccloud.com";
     chatnet = "Libera";
     port = "6697";
+    password = "<replace_me>";
     use_tls = "yes";
-    tls_verify = "no";
+    tls_verify = "yes";
     autoconnect = "yes";
   }
 );
-
-chatnets = { Libera = { type = "IRC"; }; };
 
 aliases = {
   ATAG = "WINDOW SERVER";
@@ -183,12 +182,6 @@ settings = {
     real_name = "barnumbirr";
     user_name = "barnumbirr";
     nick = "barnumbirr";
-    use_proxy = "yes";
-    proxy_address = "bnc.irccloud.com";
-    proxy_port = "6697";
-    proxy_password = "<replace_me>";
-    proxy_string = "";
-    proxy_string_after = "conn %s %d";
     timestamp_format = "%H:%M:%S";
   };
 
