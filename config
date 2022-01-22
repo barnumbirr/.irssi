@@ -1,24 +1,44 @@
 servers = (
   {
-    address = "bnc.irccloud.com";
-    chatnet = "Libera";
+    address = "chat.sr.ht";
+    chatnet = "chat.sr.ht";
     port = "6697";
-    password = "<replace_me>";
+    password = "<sr.ht_token>";
+    autoconnect = "yes";
     use_tls = "yes";
     tls_verify = "yes";
+  },
+  {
+    address = "chat.sr.ht";
+    chatnet = "libera.chat";
+    port = "6697";
+    password = "<sr.ht_token>";
     autoconnect = "yes";
+    use_tls = "yes";
+    tls_verify = "yes";
   }
 );
 
+chatnets = {
+  "chat.sr.ht" = {
+    type = "IRC";
+    username = "barnumbirr";
+  };
+  "libera.chat" = {
+    type = "IRC";
+    username = "barnumbirr/libera.chat@krypton";
+  };
+};
+
 aliases = {
   ATAG = "WINDOW SERVER";
-  ADDALLCHANS = "SCRIPT EXEC foreach my \\$channel (Irssi::channels()) { Irssi::command(\"CHANNEL ADD -auto \\$channel->{name} \\$channel->{server}->{tag} \\$channel->{key}\")\\;}";
+  ADDALLCHANS = "SCRIPT EXEC foreach my \\$channel (Irssi::channels()) { Irssi::command(\"CHANNEL ADD -auto \\\012$channel->{name} \\$channel->{server}->{tag} \\$channel->{key}\")\\;}";
   B = "BAN";
   BACK = "AWAY";
   BANS = "BAN";
   BYE = "QUIT";
   C = "CLEAR";
-  CALC = "EXEC - if command -v bc >/dev/null 2>&1\\; then printf '%s=' '$*'\\; echo '$*' | bc -l\\; else echo bc was not found\\; fi";
+  CALC = "EXEC - if command -v bc >/dev/null 2>&1\\; then printf '%s=' '$*'\\; echo '$*' | bc -l\\; else echo\012bc was not found\\; fi";
   CHAT = "DCC CHAT";
   DATE = "TIME";
   DEHIGHLIGHT = "DEHILIGHT";
