@@ -13,7 +13,6 @@ servers = (
     chatnet = "libera.chat";
     port = "6697";
     password = "<sr.ht_token>";
-    autoconnect = "yes";
     use_tls = "yes";
     tls_verify = "yes";
   }
@@ -23,6 +22,7 @@ chatnets = {
   "chat.sr.ht" = {
     type = "IRC";
     username = "barnumbirr";
+    autosendcmd = "/^connect libera.chat";
   };
   "libera.chat" = {
     type = "IRC";
