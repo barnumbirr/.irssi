@@ -1,7 +1,7 @@
 servers = (
   {
     address = "chat.sr.ht";
-    chatnet = "chat.sr.ht";
+    chatnet = "chat-sr-ht";
     port = "6697";
     password = "<sr.ht_token>";
     autoconnect = "yes";
@@ -10,21 +10,22 @@ servers = (
   },
   {
     address = "chat.sr.ht";
-    chatnet = "libera.chat";
+    chatnet = "liberachat";
     port = "6697";
     password = "<sr.ht_token>";
+    autoconnect = "yes";
     use_tls = "yes";
     tls_verify = "yes";
   }
 );
 
 chatnets = {
-  "chat.sr.ht" = {
+  "chat-sr-ht" = {
     type = "IRC";
     username = "barnumbirr";
-    autosendcmd = "/^connect libera.chat";
+    #autosendcmd = "/^connect libera.chat";
   };
-  "libera.chat" = {
+  "liberachat" = {
     type = "IRC";
     username = "barnumbirr/libera.chat@krypton";
   };
