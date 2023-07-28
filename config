@@ -1,35 +1,31 @@
 servers = (
   {
     address = "chat.sr.ht";
-    chatnet = "chat-sr-ht";
+    chatnet = "libera";
     port = "6697";
-    password = "<sr.ht_token>";
-    autoconnect = "yes";
+    password = "<personal_access_token>";
     use_tls = "yes";
     tls_verify = "yes";
-  },
-  {
-    address = "chat.sr.ht";
-    chatnet = "liberachat";
-    port = "6697";
-    password = "<sr.ht_token>";
     autoconnect = "yes";
-    use_tls = "yes";
-    tls_verify = "yes";
   }
 );
 
 chatnets = {
-  "chat-sr-ht" = {
+  libera = {
     type = "IRC";
-    username = "barnumbirr";
-    #autosendcmd = "/^connect libera.chat";
-  };
-  "liberachat" = {
-    type = "IRC";
-    username = "barnumbirr/libera.chat@krypton";
+    username = "barnumbirr/irc.libera.chat";
+    autosendcmd = "/msg NickServ identify barnumbirr <password>;wait 5000";
   };
 };
+
+channels = (
+  { name = "##aws"; chatnet = "libera"; autojoin = "Yes"; },
+  { name = "#curl"; chatnet = "libera"; autojoin = "Yes"; },
+  { name = "#debian"; chatnet = "libera"; autojoin = "Yes"; },
+  { name = "#fosdem"; chatnet = "libera"; autojoin = "Yes"; },
+  { name = "#irssi"; chatnet = "libera"; autojoin = "Yes"; },
+  { name = "#sr.ht"; chatnet = "libera"; autojoin = "Yes"; }
+);
 
 aliases = {
   ATAG = "WINDOW SERVER";
